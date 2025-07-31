@@ -23,27 +23,6 @@ services:
         airflow users create --username airflow --password airflow --firstname admin --lastname user --role Admin --email
  
 
-  airflow-scheduler:
-    image: apache/airflow:3.0.0 
-       
-    restart: always
-    depends_on:
-      - airflow-webserver
-    volumes:
-      - ./dags:/opt/airflow/dags
-      - ./spark_jobs:/opt/etl
-      - ./data:/opt/data
-      - ./airflow_db:/opt/airflow
-    command: scheduler
-
-  spark:
-    image: bitnami/spark:latest
-    container_name: spark
-    environment:
-      - SPARK_MODE=master
-    ports:
-      - "7077:7077"
-      - "8082:8081"
 
 
 
