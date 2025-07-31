@@ -10,7 +10,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./etl_pipeline:/opt/etl           # 👈 or spark_jobs if that’s your folder
     ports:
-      - "8080:8080"                       # ✅ You can keep this at 8080 for standard UI
+      - "8082:8082"                       # ✅ You can keep this at 8080 for standard UI
     entrypoint: >                         # ✅ Replaces 'command'
       bash -c "
         airflow db init &&
@@ -25,4 +25,4 @@ services:
     image: bitnami/spark:latest
     container_name: spark
     ports:
-      - "4040:4040"                       # ✅ Changed back to default Spark UI port
+      - "4042:4042"                       # ✅ Changed back to default Spark UI port
