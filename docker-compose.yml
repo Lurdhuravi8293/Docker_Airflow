@@ -21,7 +21,7 @@ services:
 
   airflow-scheduler:
     image: apache/airflow:3.0.0 
-    bulid:     
+       
     restart: always
     depends_on:
       - airflow-webserver
